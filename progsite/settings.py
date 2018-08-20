@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 's@-o_u)3#osggcww#)x#iff5#ei(6e
 # DEBUG = False
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['uaaprogramming.club', '127.0.0.1',]
+ALLOWED_HOSTS = ['www.uaaprogramming.club', '127.0.0.1',]
 
 
 # Application definition
