@@ -1,0 +1,76 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div class="container">
+
+      <h1 class="mt-4 mb-3">Announcements</h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Announcements</li>
+      </ol>
+
+      <div class="row">
+
+        <div class="col-md-8">
+          {% if post_list %}
+            {% for post in post_list %}
+
+          <div class="card mb-4">
+            <div class="card-body">
+              <h2 class="card-title">{{ post.title }}</h2>
+              <p class="card-text">{{ post.summary }}</p>
+              <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+              Posted on {{ post.date }} by
+              <a>{{ post.author }}</a>
+            </div>
+          </div>
+            {% endfor %}
+
+        {% else %}
+          <p> There are no announcements. </p>
+        {% endif %}
+
+          {% if is_paginated %}
+          <ul class="pagination justify-content-center mb-4">
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+              <a class="page-link" href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous</a>
+              </li>
+            {% endif %}
+            <li class="page-item">
+              <a class="page-link"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a>
+            </li>
+            {% if page_obj.has_next %}
+              <li class="page-item">
+              <a class="page-link" href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next</a>
+              </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+
+        </div>
+
+        <div class="col-md-4">
+
+          <div class="card mb-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <form method="GET">
+                  <input type="text" class="form-control" method="GET" name="q" value="{{ request.GET.q }}" placeholder="Search for...">
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+{% endblock %}

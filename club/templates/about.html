@@ -1,0 +1,72 @@
+{% extends "base_generic.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div class="container">
+
+      <h1 class="mt-4 mb-3">About
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active">About</li>
+      </ol>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <img class="img-fluid rounded mb-4" src="http://placehold.it/750x450" alt="">
+        </div>
+        <div class="col-lg-6">
+          <h2>Uskudar American Academy Programming Club</h2>
+          <p>The UAA Programming Club aims to teach the fundamentals of programming to its members. Throughout the year C and Python languages will be taught however the members are free to use whichever language they please in the club.
+            As a club we will join many programming competitions including TUBITAK National Computer Science Olympiad, Google Code Jam, USACO and CCC but most importantly we will be organizing our very own contest CodeFest.
+          </p>
+          <p>The club meets every Thursday after school.</p>
+        </div>
+      </div>
+
+      <h2>Our Team</h2>
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="card-img-top" src="http://placehold.it/750x450" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Ege Demir</h4>
+              <h6 class="card-subtitle mb-2 text-muted">CodeFest Coordinator</h6>
+            </div>
+            <div class="card-footer">
+              <a href="mailto:edemir19@my.uaa.k12.tr">edemir19@my.uaa.k12.tr</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="card-img-top" src="http://placehold.it/750x450" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Kaya Alptürer</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Programming Club Co-President / CodeFest Contest Manager</h6>
+            </div>
+            <div class="card-footer">
+              <a href="mailto:kalpturer19@my.uaa.k12.tr">kalpturer19@my.uaa.k12.tr</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="card-img-top" src="http://placehold.it/750x450" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Kaan Türkmen</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Programming Club Co-President / CodeFest Staff Manager</h6>
+            </div>
+            <div class="card-footer">
+              <a href="mailto:kturkmen19@my.uaa.k12.tr">kturkmen19@my.uaa.k12.tr</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base_generic.html" %}
+
+{% load staticfiles %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<h2>Your username and password didn't match. Please try again.</h2>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <h2>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</h2>
+    {% else %}
+    <h2>Please login to see this page.</h2>
+    {% endif %}
+{% endif %}
+
+<form action="{% url 'login' %}" method="post">
+{% csrf_token %}
+
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="username" name="username">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="password" name="password">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+                <input type="submit" value="login" class="btn btn-primary btn-large btn-block" >
+                <input type="hidden" name="next" value="{{ next }}" />
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
