@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+   <div class="container">
+
+     <h1 class="mt-4 mb-3">Codefest 20{{year}}
+     </h1>
+
+     <ol class="breadcrumb">
+       <li class="breadcrumb-item">
+         <a href="{% url 'index' %}">Home</a>
+       </li>
+       <li class="breadcrumb-item active">Codefest 20{{year}}</li>
+     </ol>
+
+     {% for i in range %}
+
+     <div class="row">
+       <div class="col-md-12">
+         <a>
+           <img class="img-fluid rounded mb-3 mb-md-0" src="{% static "contents/" %}codefest{{year}}_{{i}}.jpg" alt="">
+         </a>
+       </div>
+
+     </div>
+
+     <hr>
+
+     {% endfor %}
+
+   </div>
+
+{% endblock %}

@@ -14,8 +14,9 @@ def index(request):
 def about(request):
     return render(request, 'about.html', {})
 
-def codefest16(request):
-    return render(request, 'codefest16.html', {})
+def codefest(request, year):
+    range = ["1", "2", "3", "4", "5"]
+    return render(request, 'codefest.html', {'year': year, "range": range})
 
 @method_decorator(login_required, name='dispatch')
 class post_list_view(generic.ListView):
@@ -39,7 +40,7 @@ class post_detail_view(generic.DetailView):
         context = super(post_detail_view, self).get_context_data(**kwargs)
         context['form'] = CommentForm()
         return context
-        
+
 @login_required
 def comment_create(request, pk):
     post = get_object_or_404(Post, pk=pk)
