@@ -36,11 +36,6 @@ class post_detail_view(generic.DetailView):
     model = Post
     template_name = 'post_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(post_detail_view, self).get_context_data(**kwargs)
-        context['form'] = CommentForm()
-        return context
-
 @login_required
 def comment_create(request, pk):
     post = get_object_or_404(Post, pk=pk)
